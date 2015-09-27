@@ -1,11 +1,29 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-			<h1>Example Page #1!</h1>
-			<h2>{{exampleContents1}}</h2>
+			<h1>Total Money For Election</h1>
+			<h2> {{total | currency}} </h2>
+			<div ng-repeat="item in data">
+			  <h2 ng-show="item['entity_cd'] == 'NIT'">
+			    Not Itemized {{item['sum_tran_amt1'] | currency}}
+			  </h2>
+			  <h2 ng-show="item['entity_cd'] == 'IND'">
+			    Individual {{item['sum_tran_amt1'] | currency}}
+			  </h2>
+			  <h2 ng-show="item['entity_cd'] == 'COM'">
+			    Committee {{item['sum_tran_amt1'] | currency}}
+			  </h2>
+			  <h2 ng-show="item['entity_cd'] == 'OTH'">
+			    Other {{item['sum_tran_amt1'] | currency}}
+			  </h2>
+			  <h2 ng-show="item['entity_cd'] == 'SCC'">
+			    Small Contributor Committee {{item['sum_tran_amt1'] | currency}}
+			  </h2>
+			  <h2 ng-show="item['entity_cd'] == 'PTY'">
+			    Polical Party {{item['sum_tran_amt1'] | currency}}
+			  </h2>
+			</div>
 			<br><br>
-			<p class="lead"><em>Notes:</em></p>
-			<p class="lead">{{paragraphText}}</p>
 		</div>
 	</div>
 </div>
