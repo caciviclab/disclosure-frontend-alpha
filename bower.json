@@ -30,6 +30,6 @@
     "restangular": "~1.5.1"
   },
   "resolutions": {
-    "angular": "1.4.6"
+    "angular": "1.4.7"
   }
 }
