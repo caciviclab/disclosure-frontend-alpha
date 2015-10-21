@@ -8,6 +8,6 @@
 
   module.exports = angular.module('examplePage1Module', [])
     .directive('examplePage1', examplePage1Directive)
-    .controller('ExamplePage1Controller', ExamplePage1Controller);
+    .controller('ExamplePage1Controller', ['$scope', '$http', ExamplePage1Controller]);
 
 })();
