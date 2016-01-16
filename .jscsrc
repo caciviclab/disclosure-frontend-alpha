@@ -12,7 +12,7 @@
     },
     "disallowSpacesInsideParentheses": true,
     "disallowTrailingWhitespace": "ignoreEmptyLines",
-    "requireCamelCaseOrUpperCaseIdentifiers": true,
+    "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
     "requireCapitalizedConstructors": true,
     "requireCurlyBraces": true,
     "requireSpaceAfterKeywords": [
