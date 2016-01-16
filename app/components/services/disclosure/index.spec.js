@@ -12,7 +12,7 @@ describe('disclosureApi', function() {
   }));
 
   it('exists', function() {
-    expect(disclosureApi).to.be.ok;
+    expect(disclosureApi).to.be.ok;  // jshint ignore:line
   });
 
   it('has contributions', function() {

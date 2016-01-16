@@ -5,6 +5,8 @@
  * pages containing information on a single campaign committee.
  **/
 
+'use strict';
+
 module.exports = function($stateProvider) {
   $stateProvider.state({
     name: 'appMain.committee',

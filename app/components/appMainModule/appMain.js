@@ -1,5 +1,7 @@
 'use strict';
 
+/* exported examplePage1Module, aboutPageModule */
+/* exported faqPageModule, measurePageModule */
 var examplePage1Module = require('./examplePage1Module/examplePage1');
 var aboutPageModule = require('./aboutPageModule/aboutPage');
 var faqPageModule = require('./faqPageModule/faqPage');
