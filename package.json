@@ -2,6 +2,7 @@
   "name": "Disclosure-Frontend-Alpha",
   "version": "1.0.0",
   "description": "Base AngularJS application with gulp and browserify",
+  "license" : "MIT",
   "main": "app.js",
   "repository": {
     "type": "git",

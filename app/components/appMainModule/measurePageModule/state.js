@@ -5,6 +5,8 @@
  * pages containing information on a single ballot measure.
  **/
 
+'use strict';
+
 module.exports = function($stateProvider) {
   $stateProvider
     .state({
@@ -44,7 +46,7 @@ module.exports = function($stateProvider) {
       template: '<measure-listing measure="measure"></measure-listing>',
       ncyBreadcrumb: {
         label: 'Measure {{ measure.number }}',
-        parent: 'appMain.city({fips_id: measure.city.fips_id})'
+        parent: 'appMain.city({locality_id: measure.city.locality_id})'
       },
       data: {
         moduleClasses: 'page',
@@ -63,7 +65,7 @@ module.exports = function($stateProvider) {
         parent: 'appMain.measure.index'
       },
       resolve: {
-        supporters:function($stateParams, $q) {
+        supporters: function($stateParams, $q) {
           return $q.resolve([
             {name: 'Citizens for a Better Oakland', contributions: 185859},
             {name: 'Oaklanders for Ethical Government', contributions: 152330},
