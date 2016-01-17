@@ -17,3 +17,6 @@ deploy:
   skip_cleanup: true
   on:
     branch: master
+
+script:
+  - npm test

@@ -1,11 +1,6 @@
 'use strict';
 
 function cityElectionsController($scope, ballot) {
-  $scope.ballot = ballot;
-
-  $scope.isOffice = isOffice;
-  $scope.isReferendum = isReferendum;
-
   function isOffice(contest) {
     return contest.contest_type === 'office';
   }
@@ -13,6 +8,10 @@ function cityElectionsController($scope, ballot) {
   function isReferendum(contest) {
     return contest.contest_type === 'referendum';
   }
+
+  $scope.ballot = ballot;
+  $scope.isOffice = isOffice;
+  $scope.isReferendum = isReferendum;
 }
 
 module.exports = cityElectionsController;
