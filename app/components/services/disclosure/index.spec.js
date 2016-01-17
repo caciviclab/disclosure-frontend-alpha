@@ -31,11 +31,11 @@ describe('disclosureApi', function() {
     expect(disclosureApi).to.have.property('search');
   });
 
-  it('lists 10 contributions', function() {
-    // This hits a live API, so changes outside of this project could failt his test :(
+  it('lists some contributions', function() {
+    // This hits a live API, so changes outside of this project could fail this test :(
     return disclosureApi.contributions.list()
       .then(function(contributions) {
-        expect(contributions).to.have.length(9);
+        expect(contributions[0]).to.have.property('amount');
       });
   });
 });
