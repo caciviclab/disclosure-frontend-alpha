@@ -35,7 +35,7 @@ function appMainNavController($scope) {
 
   $scope.demoNavMenu = [
     {sref: 'appMain.examplePage1', title: 'Example page 1'},
-    {sref: 'appMain.city.money({fips_id: 6075})', title: 'Example city'},
+    {sref: 'appMain.city.money({locality_id: 1})', title: 'Example city'},
     {sref: 'appMain.committee.main({committee_id: 1})', title: 'Example committee'},
     {sref: 'appMain.measure.index({measure_id: 1})', title: 'Example ballot measure'}
   ];

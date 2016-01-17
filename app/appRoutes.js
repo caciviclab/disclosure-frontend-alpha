@@ -27,12 +27,12 @@ function appRoutes($stateProvider) {
   var city = {
     name: 'appMain.city',
     abstract: true,
-    url: '^/city/:fips_id',
+    url: '^/city/:locality_id',
     controller: require('./components/common/cityModule/cityController'),
     template: require('./components/common/cityModule/index.html'),
     resolve: {
       city: function($stateParams, disclosureApi) {
-        return disclosureApi.locations.get({fips_id: $stateParams.fips_id});
+        return disclosureApi.locations.get({locality_id: $stateParams.locality_id});
       }
     },
     data: {
