@@ -1,0 +1,2 @@
+
+-e git+https://github.com/caciviclab/disclosure-backend.git@6b316037cea62f3463caa71b2587d75fb6439fed#egg=disclosure-backend
