@@ -52,8 +52,13 @@ To tweak the install,
 * Edit `gulpfile.js` to change the port.
 
 To point this front-end to another (e.g. local test) back-end:
-* Run `python manage.py runserver` from your back-end repo; this should start your back-end server on port 8000.
-* Edit `app/components/services/disclosure/service.js`, set `DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/';`.
+1. Set up your back-end repo, by either:
+   * Cloning `git@github.com:caciviclab/disclosure-backend.git`
+   or
+   * Running `pip install -r requirements.txt
+2. Follow the [instructions for setting up the backend server](https://github.com/caciviclab/disclosure-backend/blob/master/README.md)
+3. Run `python manage.py runserver` from your back-end repo; this should start your back-end server on port 8000.
+4. Edit `app/components/services/disclosure/service.js`, set `DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/';`.
 
 
 ### Contributing
