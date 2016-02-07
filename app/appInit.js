@@ -21,9 +21,6 @@ function appInit($rootScope, $state) {
 
   // Proper Regex Pattern for email input form validation
   $rootScope.emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-  // $rootScope.swaggerSpec = 'http://127.0.0.1:8000/docs/api-docs/';  // for local backend testing
-
 }
 
 appInit.$inject = ['$rootScope', '$state'];

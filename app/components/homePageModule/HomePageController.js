@@ -12,7 +12,7 @@ function HomePageController($scope, $http, disclosureApi) {
       return;
     }
 
-    disclosureApi.search.get({q: $scope.search})
+    disclosureApi.locality.search({q: $scope.search})
       .then(function(results) {
         $scope.searchResults = results;
       });

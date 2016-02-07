@@ -9,6 +9,7 @@
 
 module.exports = function($stateProvider) {
   $stateProvider
+
     .state({
       name: 'appMain.measure',
       url: '^/measure/:measure_id',
@@ -16,20 +17,9 @@ module.exports = function($stateProvider) {
       controller: 'measurePageController',
       template: '<ui-view></ui-view>',
       resolve: {
-        measure: function($stateParams, $q) {
-          return $q.resolve({
-            measure_id: 1,
-            city: {
-              fips_id: 6075,
-              location: {
-                name: 'San Francisco'
-              }
-            }, // Not sure if city really makes sense here
-            number: 'BB',
-            full_text: 'Shall the Charter of the City of Oakland be amended to provide the Public Ethics Commission greater independence, broader enforcement authority, powers and…',
-            title: 'Ethics Commission Authority Increase Charter Amendment',
-            supporting_count: 4,
-            opposing_count: 6
+        measure: function($stateParams, disclosureApi) {
+          return disclosureApi.referendum.get({
+            referendum_id: $stateParams.measure_id
           });
         }
       },
@@ -40,6 +30,7 @@ module.exports = function($stateProvider) {
         pageDescription: 'Ballot measures.'
       }
     })
+
     .state({
       name: 'appMain.measure.index',
       url: '',
@@ -55,6 +46,7 @@ module.exports = function($stateProvider) {
         pageDescription: 'Ballot measures.'
       }
     })
+
     .state({
       name: 'appMain.measure.supporting',
       url: '/supporting',
@@ -65,13 +57,10 @@ module.exports = function($stateProvider) {
         parent: 'appMain.measure.index'
       },
       resolve: {
-        supporters: function($stateParams, $q) {
-          return $q.resolve([
-            {name: 'Citizens for a Better Oakland', contributions: 185859},
-            {name: 'Oaklanders for Ethical Government', contributions: 152330},
-            {name: 'Americans for Liberty', contributions: 83199},
-            {name: 'Golden State Citizens for Positive Reform', contributions: 23988}
-          ]);
+        supporters: function($stateParams, disclosureApi) {
+          return disclosureApi.referendum.supporting({
+            referendum_id: $stateParams.measure_id
+          });
         }
       },
       data: {
@@ -81,6 +70,7 @@ module.exports = function($stateProvider) {
         pageDescription: 'Supporters of the ballot measure.'
       }
     })
+
     .state({
       name: 'appMain.measure.opposing',
       url: '/opposing',
@@ -91,15 +81,10 @@ module.exports = function($stateProvider) {
         parent: 'appMain.measure.index'
       },
       resolve: {
-        opposers: function($stateParams, $q) {
-          return $q.resolve([
-            {name: 'Citizens for a Better Oakland', contributions: 185859},
-            {name: 'Oaklanders for Ethical Government', contributions: 152330},
-            {name: 'Americans for Liberty', contributions: 83199},
-            {name: 'Golden State Citizens for Positive Reform', contributions: 23988},
-            {name: 'The Public Commission for Ethical Civic Reform', contributions: 15040},
-            {name: 'The Committee of True Americans who Dearly Love America and Liberty', contributions: 7943}
-          ]);
+        opposers: function($stateParams, disclosureApi) {
+          return disclosureApi.referendum.opposing({
+            referendum_id: $stateParams.measure_id
+          });
         }
       },
       data: {

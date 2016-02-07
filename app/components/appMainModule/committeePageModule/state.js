@@ -15,22 +15,9 @@ module.exports = function($stateProvider) {
     template: '<ui-view></ui-view>',
     controller: 'committeePageController',
     resolve: {
-      committee: function($stateParams, $q) {
-        return $q.resolve({
-          committee_id: 1234,
-          name: 'Americans for Liberty',
-          contribution_by_type: {
-            unitemized: 2916394,
-            self_funded: 512554,
-            political_party: 6426112,
-            individual: 11134547,
-            recipient_committee: 986229
-          },
-          contribution_by_area: {
-            inside_location: 0.56,
-            inside_state: 0.38,
-            outside_state: 0.06
-          }
+      committee: function($stateParams, disclosureApi) {
+        return disclosureApi.committee.get({
+          committee_id: $stateProvider.committee_id
         });
       }
     },
@@ -62,24 +49,10 @@ module.exports = function($stateProvider) {
       parent: 'appMain.committee.main'
     },
     resolve: {
-      contributors: function($stateParams, $q) {
-        return $q.resolve([
-          {
-            name: 'Samantha Brooks',
-            amount: 700,
-            date: new Date('2015-04-12')
-          },
-          {
-            name: 'Lisa Sheppards',
-            amount: 700,
-            date: new Date('2015-01-13')
-          },
-          {
-            name: 'Raoul Esponsito',
-            amount: 700,
-            date: new Date('2015-04-04')
-          }
-        ]);
+      contributors: function($stateParams, disclosureApi) {
+        return disclosureApi.committee.contributors({
+          committee_id: $stateProvider.committee_id
+        });
       }
     },
     data: {

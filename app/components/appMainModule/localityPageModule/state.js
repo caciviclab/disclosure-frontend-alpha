@@ -16,7 +16,11 @@ module.exports = function($stateProvider) {
       template: '<locality-listing locality="locality"></locality-listing>',
       resolve: {
         locality: function($stateParams, disclosureApi) {
-          return disclosureApi.locations.get({locality_id: $stateParams.locality_id});
+          return disclosureApi.locality.current_ballot({
+            locality_id: $stateParams.locality_id
+          }).then(function(ballot) {
+            disclosureApi.ballot.summary({ballot_id: ballot.ballot_id});
+          });
         }
       },
       data: {
@@ -53,48 +57,9 @@ module.exports = function($stateProvider) {
         parent: 'appMain.locality'
       },
       resolve: {
-        ballot: function($q) {
-          return $q.resolve({
-            ballot_id: 'ballot1',
-            locality_id: 'locality2',
-            contests: [
-              {
-                contest_type: 'office',
-                name: 'Mayor'
-              },
-              {
-                contest_type: 'office',
-                name: 'City Auditor'
-              },
-              {
-                contest_type: 'office',
-                name: 'City Treasurer'
-              },
-              {
-                contest_type: 'office',
-                name: 'Distrit 1 City Council'
-              },
-              {
-                contest_type: 'office',
-                name: 'Distrit 3 City Council'
-              },
-              {
-                contest_type: 'office',
-                name: 'Distrit 5 City Council'
-              },
-              {
-                contest_type: 'referendum',
-                name: 'Measure AA'
-              },
-              {
-                contest_type: 'referendum',
-                name: 'Measure BB'
-              },
-              {
-                contest_type: 'referendum',
-                name: 'Measure CC'
-              }
-            ]
+        ballot: function($stateParams, disclosureApi) {
+          return disclosureApi.locality.current_ballot({
+            locality_id: $stateParams.locality_id
           });
         }
       },
