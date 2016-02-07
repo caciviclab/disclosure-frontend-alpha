@@ -33,11 +33,17 @@ describe('disclosureApi', function() {
     expect(disclosureApi).to.have.property('search');
   });
 
-  it('lists some contributions', function() {
-    // This hits a live API, so changes outside of this project could fail this test :(
-    return disclosureApi.contributions.list()
-      .then(function(contributions) {
-        expect(contributions[0]).to.have.property('amount');
+
+  // locality.search
+  it('get a locality via search', function() {
+    // Search for any locality
+    disclosureApi.search.get({q: ''})
+      .then(function(localities) {
+        localities.each(function(locality) {
+          expect(locality).to.have.property('name');
+          expect(locality).to.have.property('id');
+        });
       });
   });
+
 });
