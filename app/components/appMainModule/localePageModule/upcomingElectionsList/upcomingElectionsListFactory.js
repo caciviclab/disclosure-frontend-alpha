@@ -1,6 +1,6 @@
 'use strict';
 
-function upcomingElectionsListFactory($http, $q, $log, CONSTANTS) {
+function upcomingElectionsListFactory($http, $q, $log, CONSTANTS, disclosureApi) {
   var apiBaseUrl = CONSTANTS.DISCLOSURE_API_BASEURL;
 
   var service = {
@@ -11,9 +11,7 @@ function upcomingElectionsListFactory($http, $q, $log, CONSTANTS) {
   return service;
 
   function getUpcomingElectionData(localeId) {
-    return $http.get(apiBaseUrl + '/locality/' + localeId + '/current_ballot')
-        .then(getUpcomingElectionDataComplete)
-        .catch(getUpcomingElectionDataFailed);
+    return disclosureApi.locality.current_ballot({locality_id: localeId});
   }
 
   function getUpcomingElectionDataComplete(data) {
@@ -25,5 +23,5 @@ function upcomingElectionsListFactory($http, $q, $log, CONSTANTS) {
   }
 }
 
-upcomingElectionsListFactory.$inject = ['$http', '$q', '$log', 'CONSTANTS'];
+upcomingElectionsListFactory.$inject = ['$http', '$q', '$log', 'CONSTANTS', 'disclosureApi'];
 module.exports = upcomingElectionsListFactory;

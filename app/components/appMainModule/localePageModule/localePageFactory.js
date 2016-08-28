@@ -1,6 +1,6 @@
 'use strict';
 
-var localePageFactory = function($log, $http, $q, CONSTANTS) {
+var localePageFactory = function($log, $http, $q, CONSTANTS, disclosureApi) {
   var apiBasePath = CONSTANTS.DISCLOSURE_API_BASEURL;
   var apiEndpoint = '/locality';
 
@@ -34,10 +34,7 @@ var localePageFactory = function($log, $http, $q, CONSTANTS) {
 
   // function getCurrentBallotData() {
   function getCurrentBallotData(localeId) {
-    // return $http.get(apiBasePath + apiEndpoint + '/' + localePageData.metaData.localeId)
-    return $http.get(apiBasePath + apiEndpoint + '/' + localeId + '/current_ballot')
-      .then(getDataComplete)
-      .catch(getMetaDataFailed);
+    return disclosureApi.locality.current_ballot({locality_id: localeId});
   }
 
   // function getDataComplete(data, status, headers, config) {
@@ -57,5 +54,5 @@ var localePageFactory = function($log, $http, $q, CONSTANTS) {
 
 };
 
-localePageFactory.$inject = ['$log', '$http', '$q', 'CONSTANTS'];
+localePageFactory.$inject = ['$log', '$http', '$q', 'CONSTANTS', 'disclosureApi'];
 module.exports = localePageFactory;

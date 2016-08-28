@@ -40,8 +40,8 @@
       var ballotListItem = {};
       ballotListItem.id = contestObject.id;
       ballotListItem.type = contestObject.contest_type.toLowerCase();
-      ballotListItem.linkTitle = contestObject.name;
-      ballotListItem.linkUrl = $filter('slugify')(contestObject.name);
+      ballotListItem.linkTitle = ballotListItem.type == 'office' ? contestObject.name : 'Measure: ' + contestObject.number + ' ' + contestObject.title;
+      ballotListItem.linkUrl = $filter('slugify')(ballotListItem.linkTitle);
       ballotListItem.electionDate = rawBallotData.date;
       return ballotListItem;
     }

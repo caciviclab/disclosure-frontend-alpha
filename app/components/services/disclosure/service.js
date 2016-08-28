@@ -85,9 +85,11 @@ DisclosureService.prototype = {
     var swagger = this.swagger;
     var $q = this.$q;
     var $rootScope = this.$rootScope;
+
     // Swagger builds async, unfortunately
     return this.ready.then(function() {
-        return $q(function(resolve, reject) {
+      return $q(function(resolve, reject) {
+        try {
           swagger[namespace][method].call(swagger, params, options,
             function(resp) {
               $rootScope.$apply(function() {
@@ -99,8 +101,11 @@ DisclosureService.prototype = {
                 reject(err);
               });
             });
-        });
+        } catch (err) {
+          reject(err);
+        }
       });
+    });
   }
 };
 

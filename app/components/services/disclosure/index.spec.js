@@ -13,13 +13,20 @@ describe('disclosureApi', function() {
     disclosureApi = _disclosureApi_;
   }));
 
+  it('errors when the proxy is mismatched with the swagger spec', function(done) {
+    disclosureApi._proxy('foo', 'get')
+      .catch(function(err) {
+        expect(err).to.be.an.error;
+        done();
+      });
+  });
 
   // locality.search
   it('get a locality', function() {
     // Search for any locality
-    disclosureApi.locality.search({q: ''})
+    return disclosureApi.locality.search({q: ''})
       .then(function(localities) {
-        localities.each(function(locality) {
+        localities.forEach(function(locality) {
           expect(locality).to.have.property('name');
           expect(locality).to.have.property('type');
           expect(locality).to.have.property('id');
@@ -30,7 +37,7 @@ describe('disclosureApi', function() {
   // locality.current_ballot
   it('get a ballot', function() {
     // Search for any locality
-    disclosureApi.locality.search({q: ''})
+    return disclosureApi.locality.search({q: ''})
       .then(function(localities) {
         // Get the current ballot for the first locality
         var locality = localities[0];
@@ -46,7 +53,7 @@ describe('disclosureApi', function() {
   // office_election.get
   it('get an office election', function() {
     // Search for any locality
-    disclosureApi.locality.search({q: ''})
+    return disclosureApi.locality.search({q: ''})
       .then(function(localities) {
         // Get the current ballot for the first locality
         var locality = localities[0];
@@ -64,7 +71,7 @@ describe('disclosureApi', function() {
   // candidate.get
   it('get a candidate', function() {
     // Search for any locality
-    disclosureApi.locality.search({q: ''})
+    return disclosureApi.locality.search({q: ''})
       .then(function(localities) {
         // Get the current ballot for the first locality
         var locality = localities[0];
