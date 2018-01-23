@@ -11,13 +11,14 @@ angular.module('odca.static_api', [
 
     return {
       candidate: api_group('/candidate/:candidate_id', {
+        // all data is in one file
         supporting: {
           method: 'get',
-          url: '/supporting'
+          url: '/'
         },
         opposing: {
           method: 'get',
-          url: '/opposing'
+          url: '/'
         }
       }),
       committee: api_group('/committee/:filer_id', {
