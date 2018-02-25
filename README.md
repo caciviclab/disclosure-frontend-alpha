@@ -3,7 +3,7 @@
 **This project is deprecated and no longer maintained. We are consolidating
 efforts into a static generated website approach using
 [disclosure-backend-static](https://github.com/caciviclab/disclosure-backend-static)
-and [www.opendisclosure.io](https://github.com/caciviclab/www.opendisclosure.io).**
+and [odca-jekyll](https://github.com/caciviclab/odca-jekyll).**
 
 
 # Open Disclosure California
