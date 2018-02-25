@@ -1,5 +1,11 @@
 [![Build Status](https://travis-ci.org/caciviclab/disclosure-frontend.svg)](https://travis-ci.org/caciviclab/disclosure-frontend)
 
+**This project is deprecated and no longer maintained. We are consolidating
+efforts into a static generated website approach using
+[disclosure-backend-static](https://github.com/caciviclab/disclosure-backend-static)
+and [odca-jekyll](https://github.com/caciviclab/odca-jekyll).**
+
+
 # Open Disclosure California
 
 This is the front-end AngularJS application for viewing ballot measure funding data. This front-end application works from an API defined by the [back-end Django application](https://github.com/caciviclab/disclosure-backend)
