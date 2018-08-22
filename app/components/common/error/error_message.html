@@ -1,0 +1,17 @@
+<div ng-if="$ctrl.isError" class="odca-error-message">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-2 col-sm-1">
+        <div class="odca-error-message__alert fa fa-exclamation-triangle"></div>
+      </div>
+      <div class="col-xs-8 col-sm-10">
+        <span>Sorry, something went wrong.</span>
+        <span ng-if="$ctrl.message" class="odca-error-message__message">{{ $ctrl.message }}</span>
+        <span>You can try <a ng-click="$ctrl.refresh()">refreshing</a> the page or <a ng-click="$ctrl.home()">start over</a>.</span>
+      </div>
+      <div class="col-xs-2 col-sm-1">
+        <div class="odca-error-message__close"><a ng-click="$ctrl.close()">X</a></div>
+      </div>
+    </div>
+  </div>
+</div>

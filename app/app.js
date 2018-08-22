@@ -11,6 +11,7 @@
   require('./components/common/core/core');
   require('./components/homePageModule/homePage');
   require('./components/appMainModule/appMain');
+  require('./components/common/error');
   require('./components/common/page_metadata');
   require('./components/common/scroll_top');
   
@@ -24,6 +25,7 @@
       'coreModules',
       'homePageModule',
       'appMainModule',
+      'odca.error',
       'odca.page_metadata',
       'odca.scroll_top'
     ])

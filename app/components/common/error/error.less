@@ -1,0 +1,36 @@
+odca-error-message {
+  display: block;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.odca-error-message {
+  &:extend(.text-xsmall);
+  background-color: @color-gold-bg;
+  border: 3px solid @color-gold;
+  border-radius: 4px;
+  color: @core-grey-4;
+  font-style: italic;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  position: relative;
+
+  a[ng-click] {
+    cursor: pointer;
+  }
+}
+
+.odca-error-message__alert {
+  color: @color-gold;
+  font-size: 300%;
+  text-align: center;
+  width: 100%;
+}
+
+.odca-error-message__close {
+  font-style: normal;
+  font-weight: bold;
+  text-align: right;
+}
